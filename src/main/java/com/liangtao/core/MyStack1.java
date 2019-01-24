@@ -1,4 +1,4 @@
-package com.yitong.core;
+package com.liangtao.core;
 
 import java.util.Stack;
 
