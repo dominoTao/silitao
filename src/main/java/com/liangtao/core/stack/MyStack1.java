@@ -1,4 +1,4 @@
-package com.liangtao.core;
+package com.liangtao.core.stack;
 
 import java.util.Stack;
 
