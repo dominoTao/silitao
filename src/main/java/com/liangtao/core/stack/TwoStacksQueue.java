@@ -7,10 +7,10 @@ import java.util.Stack;
  * @author Administrator
  *
  */
-public class MyStack3 {
+public class TwoStacksQueue {
 	private Stack<Integer> stackPush;
 	private Stack<Integer> stackPop;
-	public MyStack3() {
+	public TwoStacksQueue() {
 		this.stackPush = new Stack<Integer>();
 		this.stackPop = new Stack<Integer>();
 	}
@@ -51,7 +51,7 @@ public class MyStack3 {
 	}
 	
 	public static void main(String[] args) {
-		MyStack3 test = new MyStack3();
+		TwoStacksQueue test = new TwoStacksQueue();
 		test.stackPush.add(1);
 		test.stackPush.add(2);
 		test.stackPush.add(3);
