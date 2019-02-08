@@ -16,16 +16,30 @@ public class StackSort {
 	 * @param stack
 	 */
 	public static void sortStackByStack(Stack<Integer> stack) {
+		//辅助栈
 		Stack<Integer> help = new Stack<Integer>();
-		
+		//该循环完毕后，stack栈中元素为空，help栈中元素顺序为：从栈顶到栈底依次增大
+	/**如：		
+		stack	help
+				1
+				2
+				3
+	*/
 		while(!stack.isEmpty()) {
 			int cur = stack.pop();
+			/**help.peek()<cur,则stack中元素栈顶大，栈底小；反之stack栈顶元素小，栈底元素大*/
 			while(!help.isEmpty() && help.peek() < cur) {
 				stack.push(help.pop());
 			}
 			help.push(cur);
 		}
-		
+	/**help栈弹出，直接压入stack栈
+
+		stack	help
+		3
+		2
+		1
+	*/
 		while(!help.isEmpty()) {
 			stack.push(help.pop());
 		}
