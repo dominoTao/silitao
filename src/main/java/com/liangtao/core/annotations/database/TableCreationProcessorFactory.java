@@ -19,7 +19,7 @@ import static com.sun.mirror.util.DeclarationVisitors.*;
  * 数据表生成处理器工程，嵌套表格生成处理器内部类
  * 嵌套表格生成处理器内部类，再嵌套表格创建访问者类
  * 注意：静态引用
- * {Exec： apt -factory com.liangtao.core.annotations.database.TableCreationProcessorFactory Multiplier.java -s ../database}
+ * {Exec： apt -factory com.liangtao.core.annotations.database.TableCreationProcessorFactory Member.java -s ../database}
  */
 public class TableCreationProcessorFactory implements AnnotationProcessorFactory {
 
@@ -55,8 +55,7 @@ public class TableCreationProcessorFactory implements AnnotationProcessorFactory
 		@Override
 		public void process() {
 			for(TypeDeclaration typeDecl : env.getSpecifiedTypeDeclarations()) {
-//				typeDecl.accept(getDeclarationScanner(new TableCreationVisitor(),null),NO_OP);
-				typeDecl.accept(getDeclarationScanner(new TableCreationVisitor(),null));
+				typeDecl.accept(getDeclarationScanner(new TableCreationVisitor(),NO_OP));
 				sql = sql.substring(0,sql.length()-1) + ");";
 				System.out.println("creation sql is : \n"+sql);
 				sql = "";
@@ -64,6 +63,7 @@ public class TableCreationProcessorFactory implements AnnotationProcessorFactory
 		}
 		
 		private class TableCreationVisitor extends SimpleDeclarationVisitor{
+			@Override  
 			public void visitClassDeclaration(ClassDeclaration d) {
 				DBTable dbTable = d.getAnnotation(DBTable.class);
 				if(dbTable!=null) {
@@ -72,6 +72,7 @@ public class TableCreationProcessorFactory implements AnnotationProcessorFactory
 					sql += " (";
 				}
 			}
+			@Override  
 			public void visitFieldDeclaration(FieldDeclaration d) {
 				String columnName = "";
 				if(d.getAnnotation(SQLInteger.class)!=null) {
