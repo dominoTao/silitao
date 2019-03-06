@@ -5,13 +5,15 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * {Exec : com.liangtao.core.annotations.database.Member}
+ */
 public class TableCreator {
 	public static void main(String[] args) throws Exception {
 		if(args.length < 1) {
 			System.out.println("参数:带注解的类");
 			System.exit(0);
 		}
-//		String[] a = {"com.liangtao.core.annotations.database.Member"};
 		for(String className : args) {
 			Class<?> cl = Class.forName(className);
 			DBTable dbTable = cl.getAnnotation(DBTable.class);
