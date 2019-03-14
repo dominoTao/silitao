@@ -8,6 +8,6 @@ package com.liangtao.core.concurrency;
 public class ExplicitCriticalSection {
 
 }
-class ExplicitPairManager1 extends PairManager {
-	
-}
+//class ExplicitPairManager1 extends PairManager {
+//	
+//}
