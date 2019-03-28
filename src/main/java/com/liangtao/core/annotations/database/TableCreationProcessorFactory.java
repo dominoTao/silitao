@@ -1,10 +1,5 @@
 package com.liangtao.core.annotations.database;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Set;
-
 import com.sun.mirror.apt.AnnotationProcessor;
 import com.sun.mirror.apt.AnnotationProcessorEnvironment;
 import com.sun.mirror.apt.AnnotationProcessorFactory;
@@ -13,7 +8,14 @@ import com.sun.mirror.declaration.ClassDeclaration;
 import com.sun.mirror.declaration.FieldDeclaration;
 import com.sun.mirror.declaration.TypeDeclaration;
 import com.sun.mirror.util.SimpleDeclarationVisitor;
-import static com.sun.mirror.util.DeclarationVisitors.*;
+
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Set;
+
+import static com.sun.mirror.util.DeclarationVisitors.NO_OP;
+import static com.sun.mirror.util.DeclarationVisitors.getDeclarationScanner;
 
 /**
  * 数据表生成处理器工程，嵌套表格生成处理器内部类
@@ -23,14 +25,12 @@ import static com.sun.mirror.util.DeclarationVisitors.*;
  */
 public class TableCreationProcessorFactory implements AnnotationProcessorFactory {
 
-	@Override
 	public AnnotationProcessor getProcessorFor(
 			Set<AnnotationTypeDeclaration> atds,
 			AnnotationProcessorEnvironment env) {
 		return new TableCreationProcessor(env);
 	}
 
-	@Override
 	public Collection<String> supportedAnnotationTypes() {
 		return Arrays.asList(
 				"com.liangtao.core.annotations.database.Constraints",
@@ -39,7 +39,6 @@ public class TableCreationProcessorFactory implements AnnotationProcessorFactory
 				"com.liangtao.core.annotations.database.SQLString");
 	}
 
-	@Override
 	public Collection<String> supportedOptions() {
 		return Collections.emptySet();
 	}
@@ -52,7 +51,6 @@ public class TableCreationProcessorFactory implements AnnotationProcessorFactory
 			this.env = env;
 		}
 
-		@Override
 		public void process() {
 			for(TypeDeclaration typeDecl : env.getSpecifiedTypeDeclarations()) {
 				typeDecl.accept(getDeclarationScanner(new TableCreationVisitor(),NO_OP));

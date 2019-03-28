@@ -1,15 +1,15 @@
 package com.liangtao.core.annotations.apt;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-
 import com.sun.mirror.apt.AnnotationProcessor;
 import com.sun.mirror.apt.AnnotationProcessorEnvironment;
 import com.sun.mirror.declaration.MethodDeclaration;
 import com.sun.mirror.declaration.Modifier;
 import com.sun.mirror.declaration.ParameterDeclaration;
 import com.sun.mirror.declaration.TypeDeclaration;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 
 /**
  * 接口提取处理器
@@ -25,7 +25,6 @@ public class InterfaceExtractorProcessor implements AnnotationProcessor {
 		this.env = env;
 	}
 
-	@Override
 	public void process() {
 		for(TypeDeclaration typeDecl : env.getSpecifiedTypeDeclarations()) {
 			ExtractInterface annot = typeDecl.getAnnotation(ExtractInterface.class);

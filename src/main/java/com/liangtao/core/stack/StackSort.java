@@ -47,7 +47,7 @@ public class StackSort {
 	
 	
 	public static void main(String[] args) {
-		Stack<Integer> stack = new Stack<>();
+		Stack<Integer> stack = new Stack<Integer>();
 		stack.push(2);
 		stack.push(132);
 		stack.push(23);
