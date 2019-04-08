@@ -51,7 +51,6 @@ class PairManipulator implements Runnable {
 		this.pm = pm;
 	}
 
-	@Override
 	public void run() {
 		while(true)
 			pm.increment();	
@@ -68,7 +67,6 @@ class PairChecker implements Runnable {
 		this.pm = pm;
 	}
 
-	@Override
 	public void run() {
 		while(true) {
 			pm.checkCounter.incrementAndGet();
@@ -78,7 +76,6 @@ class PairChecker implements Runnable {
 	
 }
 class PairManager1 extends PairManager {
-	@Override
 	public synchronized void increment() {
 		p.incrementX();
 		p.incrementY();
@@ -137,7 +134,6 @@ class Pair {
 	public void incrementY() {
 		y++;
 	}
-	@Override
 	public String toString() {
 		return "x : " + x + " ; y : " + y;
 	}

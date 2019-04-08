@@ -16,7 +16,6 @@ public class CaptureUncaughtException {
 }
 class ExceptionThread2 implements Runnable {
 
-	@Override
 	public void run() {
 		// TODO Auto-generated method stub
 		Thread t = Thread.currentThread();
@@ -40,14 +39,12 @@ caught java.lang.RuntimeException
  * Thread.UncaughtExceptionHandler.uncaughtException()会在线程因未捕获的异常而临近死亡时被调用
  */
 class MyUncaughtExceptionHandler implements Thread.UncaughtExceptionHandler {
-	@Override
 	public void uncaughtException(Thread t, Throwable e) {
 		System.out.println("caught "+e);
 	}
 }
 class HandlerThreadFactory implements ThreadFactory {
 
-	@Override
 	public Thread newThread(Runnable r) {
 		System.out.println(this + " creating new Thread");
 		Thread t = new Thread(r);

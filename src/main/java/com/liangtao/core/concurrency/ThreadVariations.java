@@ -76,7 +76,6 @@ class InnerRunnable1{
 			t = new Thread(this,name);
 			t.start();
 		}
-		@Override
 		public void run() {
 			while(true) {
 				try {
@@ -104,7 +103,6 @@ class InnerRunnable2{
 	public InnerRunnable2(String name) {
 		t = new Thread(new Runnable(){
 
-			@Override
 			public void run() {
 				try {
 					System.out.println(this);

@@ -13,12 +13,10 @@ public class SimplePriorities implements Runnable {
 		this.priority = priority;
 	}
 
-	@Override
 	public String toString() {
 		return Thread.currentThread()+"\t"+countDown;
 	}
 
-	@Override
 	public void run() {
 		Thread.currentThread().setPriority(priority);
 		while(true) {

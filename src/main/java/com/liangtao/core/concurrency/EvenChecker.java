@@ -10,7 +10,6 @@ public class EvenChecker implements Runnable {
 		generator = g;
 		id = ident;
 	}
-	@Override
 	public void run() {
 		while(!generator.isCanceled()) {
 			int val = generator.next();

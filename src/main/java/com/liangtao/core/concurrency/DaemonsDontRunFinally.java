@@ -11,7 +11,6 @@ import java.util.concurrent.TimeUnit;
  */
 class ADaemon implements Runnable {
 
-	@Override
 	public void run() {
 		try {
 			System.out.println("Starting ADaemon");

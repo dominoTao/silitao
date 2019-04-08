@@ -10,7 +10,6 @@ public class TaskWithResult implements Callable<String> {
 		this.id = id;
 	}
 	
-	@Override
 	public String call() throws Exception {
 		return "result of TaskWithResult "+id;
 	}

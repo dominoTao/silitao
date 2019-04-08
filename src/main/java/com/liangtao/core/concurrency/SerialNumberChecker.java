@@ -13,7 +13,6 @@ public class SerialNumberChecker {
 	private static CircularSet serials = new CircularSet(1000);
 	private static ExecutorService exec = Executors.newCachedThreadPool();
 	static class SerialChecker implements Runnable {
-		@Override
 		public void run() {
 			while(true) {
 				int serial = SerialNumberGenerator.nextSerialNumber();

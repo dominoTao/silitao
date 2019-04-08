@@ -30,7 +30,6 @@ public class AtomicityTest implements Runnable {
 	private synchronized int getValue(){
 		return i;
 	}
-	@Override
 	public void run() {
 		while(true)
 			evenIncrement();

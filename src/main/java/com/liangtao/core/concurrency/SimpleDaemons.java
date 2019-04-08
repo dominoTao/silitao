@@ -6,7 +6,6 @@ import java.util.concurrent.TimeUnit;
  * 后台进程
  */
 public class SimpleDaemons implements Runnable {
-	@Override
 	public void run() {
 		try {
 			while(true){
