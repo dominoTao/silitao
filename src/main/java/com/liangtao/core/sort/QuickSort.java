@@ -22,11 +22,18 @@ public class QuickSort {
             while(low < high && arr[high] >= temp) {
                 high--;
             }
-            arr[low] = arr[high];
+            if(low<high) {
+                arr[low] = arr[high];
+                low++;
+            }
+
             while(low < high && arr[low] <= temp) {
                 low++;
             }
-            arr[high] = arr[low];
+            if(low<high) {
+                arr[high] = arr[low];
+                high--;
+            }
         }
         arr[low] = temp;
         return low;
